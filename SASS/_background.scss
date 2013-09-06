@@ -1,0 +1,26 @@
+body {
+  background-color: $deepSpace;
+}
+
+.star {
+  background-color: $starLight;
+  z-index: -3;
+}
+
+.twinkle {
+  box-shadow: 1px 0 1px $starLight, 0  1px 1px $starLight, -1px 0 1px $starLight, 0 -1px 1px $starLight;
+}
+
+#moon {
+  background-color: $moonLight;
+  z-index: -2;
+  box-shadow: 2px 0 3px $moonLight, 0  2px 3px $moonLight, -2px 0 3px $moonLight, 0 -2px 3px $moonLight;
+}
+
+.star, #moon {
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -khtml-border-radius: 100%;
+  position: fixed;
+}
