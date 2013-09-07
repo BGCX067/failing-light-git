@@ -4,11 +4,13 @@
     <title>Failing Light</title>
 
     <!-- Style Sheets -->
+    <link rel="stylesheet" href="CSS/foundation.css">
     <link rel="stylesheet" href="CSS/style.css">
     <!-- END Style Sheets -->
 
     <!-- JavaScripts -->
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="JS/vendor/custom.modernizr.js"></script>
     <script type="text/javascript" src="JS/background.js"></script>
     <!-- END JavaScripts -->
 
@@ -16,17 +18,27 @@
 <body>
     <div id="stars"></div>
     <div id="moon"></div>
-    <div id="wrapper">
-        <div id="header">
-        </div>
-        <div id="content">
-        </div>
-        <div id="footer">
-        </div>
+    <div id="header" class="row">
+        <a class="large-3 columns menu first" href="">Home</a>
+        <a class="large-3 columns menu" href="">Games</a>
+        <a class="large-3 columns menu" href="">About</a>
+        <a class="large-3 columns menu last" href="">Login</a>
+    </div>
+    <div id="content" class="row">
+    </div>
+    <div id="footer" class="row">
+        <a class="large-3 columns menu first" href="">Contact</a>
+        <div class="large-6 columns" id="copyright"><div class="menu">&copy; 2103 FailingLight</div></div>
+        <a id="donate" class="large-3 columns menu last" href="">Donate</a>
     </div>
 
     <script type="text/javascript">
         GenerateBackground();
+    </script>
+
+    <script src="JS/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
     </script>
 </body>
 </html>
