@@ -6883,25 +6883,25 @@ a.th {
 
 /* line 1, ../../SASS/_background.scss */
 body {
-  background-color: #00010b;
+  background-color: #0a0d1a;
 }
 
 /* line 5, ../../SASS/_background.scss */
 .star {
-  background-color: #feffef;
+  background-color: #fdfdfd;
   z-index: -3;
 }
 
 /* line 10, ../../SASS/_background.scss */
 .twinkle {
-  box-shadow: 1px 0 1px #feffef, 0 1px 1px #feffef, -1px 0 1px #feffef, 0 -1px 1px #feffef;
+  box-shadow: 1px 0 1px #fdfdfd, 0 1px 1px #fdfdfd, -1px 0 1px #fdfdfd, 0 -1px 1px #fdfdfd;
 }
 
 /* line 14, ../../SASS/_background.scss */
 #moon {
-  background-color: #feffef;
+  background-color: #dadcf5;
   z-index: -2;
-  box-shadow: 2px 0 3px #feffef, 0 2px 3px #feffef, -2px 0 3px #feffef, 0 -2px 3px #feffef;
+  box-shadow: 2px 0 3px #dadcf5, 0 2px 3px #dadcf5, -2px 0 3px #dadcf5, 0 -2px 3px #dadcf5;
 }
 
 /* line 20, ../../SASS/_background.scss */
@@ -6924,17 +6924,15 @@ body {
 
 /* line 9, ../../SASS/_content.scss */
 #header, #footer {
-  background-color: #2b2b2b;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
-  opacity: 0.9;
+  background-color: rgba(59, 79, 135, 0.9);
 }
-/* line 12, ../../SASS/_content.scss */
+/* line 11, ../../SASS/_content.scss */
 #header.last, #footer.last {
   border-right: none;
   box-shadow: none;
 }
 
-/* line 18, ../../SASS/_content.scss */
+/* line 17, ../../SASS/_content.scss */
 .first:hover {
   border-top-left-radius: 5px;
   -moz-border-radius-topleft: 5px;
@@ -6946,7 +6944,7 @@ body {
   -khtml-border-radius-bottomleft: 5px;
 }
 
-/* line 29, ../../SASS/_content.scss */
+/* line 28, ../../SASS/_content.scss */
 .last:hover {
   border-top-right-radius: 5px;
   -moz-border-radius-topright: 5px;
@@ -6958,10 +6956,10 @@ body {
   -khtml-border-radius-bottomright: 5px;
 }
 
-/* line 40, ../../SASS/_content.scss */
+/* line 39, ../../SASS/_content.scss */
 .menu {
   text-align: center;
-  color: white;
+  color: #fdfdfd;
   display: table-cell;
   vertical-align: middle;
   padding-top: 15px;
@@ -6969,7 +6967,7 @@ body {
   border-right: 1px solid black;
   font-weight: bold;
 }
-/* line 49, ../../SASS/_content.scss */
+/* line 48, ../../SASS/_content.scss */
 #copyright .menu {
   padding-top: 17px;
   padding-bottom: 17px;
@@ -6982,36 +6980,31 @@ body {
   font-size: 12px;
 }
 
-/* line 62, ../../SASS/_content.scss */
+/* line 61, ../../SASS/_content.scss */
 .menu:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=95);
-  opacity: 0.95;
-  background-color: #9b9b9b;
-  color: #f8f8f8;
+  background-color: rgba(139, 141, 160, 0.5);
+  color: #fdfdfd;
 }
-/* line 66, ../../SASS/_content.scss */
+/* line 64, ../../SASS/_content.scss */
 #copyright .menu:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
-  opacity: 0.9;
-  background-color: #2b2b2b;
-  color: white;
+  background-color: inherit;
+}
+
+/* line 69, ../../SASS/_content.scss */
+#donate {
+  color: #1c9f10;
 }
 
 /* line 73, ../../SASS/_content.scss */
-#donate {
-  color: #aa0112;
-}
-
-/* line 77, ../../SASS/_content.scss */
 #copyright {
   border-right: 1px solid black;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-/* line 81, ../../SASS/_content.scss */
+/* line 79, ../../SASS/_content.scss */
 #content div div {
-  background-color: white;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
-  opacity: 0.9;
+  background-color: rgba(253, 253, 253, 0.9);
   color: black;
   border-radius: 5px;
   -moz-border-radius: 5px;

@@ -29,8 +29,6 @@ $$.BoundClosure$0 = {"": "BoundClosure;_self,_target,_receiver",
 
 $$.Closure$_processWorkerMessage = {"": "Closure;call$2,$name"};
 
-$$.Closure$_throwFormatException = {"": "Closure;call$1,$name"};
-
 $$.Closure$toStringWrapper = {"": "Closure;call$0,$name"};
 
 $$.Closure$invokeClosure = {"": "Closure;call$5,$name"};
@@ -414,35 +412,6 @@ JSString: {"": "String/Interceptor;",
   substring$1: function($receiver, startIndex) {
     return this.substring$2($receiver, startIndex, null);
   },
-  trim$0: function(receiver) {
-    var endIndex, startIndex, codeUnit, endIndex0, endIndex1;
-    for (endIndex = receiver.length, startIndex = 0; startIndex < endIndex;) {
-      if (startIndex >= endIndex)
-        $.throwExpression(new $.RangeError("value " + startIndex));
-      codeUnit = receiver.charCodeAt(startIndex);
-      if (codeUnit === 32 || codeUnit === 13 || $.JSString__isWhitespace(codeUnit))
-        ++startIndex;
-      else
-        break;
-    }
-    if (startIndex === endIndex)
-      return "";
-    for (endIndex0 = endIndex; true; endIndex0 = endIndex1) {
-      endIndex1 = endIndex0 - 1;
-      if (endIndex1 < 0)
-        $.throwExpression(new $.RangeError("value " + endIndex1));
-      if (endIndex1 >= endIndex)
-        $.throwExpression(new $.RangeError("value " + endIndex1));
-      codeUnit = receiver.charCodeAt(endIndex1);
-      if (codeUnit === 32 || codeUnit === 13 || $.JSString__isWhitespace(codeUnit))
-        ;
-      else
-        break;
-    }
-    if (startIndex === 0 && endIndex0 === endIndex)
-      return receiver;
-    return receiver.substring(startIndex, endIndex0);
-  },
   get$isEmpty: function(receiver) {
     return receiver.length === 0;
   },
@@ -470,49 +439,7 @@ JSString: {"": "String/Interceptor;",
       throw $.wrapException(new $.RangeError("value " + $.S(index)));
     return receiver[index];
   },
-  $isString: true,
-  static: {
-JSString__isWhitespace: function(codeUnit) {
-  if (codeUnit < 256)
-    switch (codeUnit) {
-      case 9:
-      case 10:
-      case 11:
-      case 12:
-      case 13:
-      case 32:
-      case 133:
-      case 160:
-        return true;
-      default:
-        return false;
-    }
-  switch (codeUnit) {
-    case 5760:
-    case 6158:
-    case 8192:
-    case 8193:
-    case 8194:
-    case 8195:
-    case 8196:
-    case 8197:
-    case 8198:
-    case 8199:
-    case 8200:
-    case 8201:
-    case 8202:
-    case 8232:
-    case 8233:
-    case 8239:
-    case 8287:
-    case 12288:
-    case 65279:
-      return true;
-    default:
-      return false;
-  }
-}}
-
+  $isString: true
 }}],
 ["_isolate_helper", "dart:_isolate_helper", , {
 _callInIsolate: function(isolate, $function) {
@@ -1581,25 +1508,6 @@ Primitives_printString: function(string) {
   throw "Unable to print message: " + String(string);
 },
 
-Primitives__throwFormatException: function(string) {
-  throw $.wrapException(new $.FormatException(string));
-},
-
-Primitives_parseDouble: function(source, handleError) {
-  var result, trimmed;
-  handleError = $.Primitives__throwFormatException$closure;
-  if (!/^\s*[+-]?(?:Infinity|NaN|(?:\.\d+|\d+(?:\.\d*)?)(?:[eE][+-]?\d+)?)\s*$/.test(source))
-    return handleError.call$1(source);
-  result = parseFloat(source);
-  if (isNaN(result)) {
-    trimmed = C.JSString_methods.trim$0(source);
-    if (trimmed === "NaN" || trimmed === "+NaN" || trimmed === "-NaN")
-      return result;
-    return handleError.call$1(source);
-  }
-  return result;
-},
-
 Primitives_objectTypeName: function(object) {
   var $name, decompiled, t1;
   $name = $.constructorNameFallback($.getInterceptor(object));
@@ -2081,26 +1989,6 @@ lookupDispatchRecord: function(obj) {
 
 makeLeafDispatchRecord: function(interceptor) {
   return $.makeDispatchRecord(interceptor, false, null, !!interceptor.$isJavaScriptIndexingBehavior);
-},
-
-stringReplaceAllUnchecked: function(receiver, from, to) {
-  var result, $length, i, t1;
-  if (from === "")
-    if (receiver === "")
-      return to;
-    else {
-      result = $.StringBuffer$("");
-      $length = receiver.length;
-      result.write$1(to);
-      for (i = 0; i < $length; ++i) {
-        t1 = receiver[i];
-        result._contents = result._contents + t1;
-        result._contents = result._contents + to;
-      }
-      return result._contents;
-    }
-  else
-    return receiver.replace(new RegExp(from.replace(new RegExp("[[\\]{}()*+?.\\\\^$|]", 'g'), "\\$&"), 'g'), to.replace("$", "$$$$"));
 },
 
 TypeErrorDecoder: {"": "Object;_pattern,_arguments,_argumentsExpr,_expr,_method,_receiver",
@@ -4054,7 +3942,7 @@ Duration: {"": "Object;_duration<",
     return new $.Duration(0 + (this._duration - other.get$_duration()));
   },
   $mul: function(_, factor) {
-    if (typeof factor !== "number")
+    if (factor == null)
       throw $.iae(factor);
     return $.Duration$(0, 0, C.JSNumber_methods.toInt$0(C.JSNumber_methods.roundToDouble$0(this._duration * factor)), 0, 0, 0);
   },
@@ -4349,13 +4237,6 @@ _ExceptionImplementation: {"": "Object;message",
   $isException: true
 },
 
-FormatException: {"": "Object;message",
-  toString$0: function(_) {
-    return "FormatException: " + $.S(this.message);
-  },
-  $isException: true
-},
-
 IntegerDivisionByZeroException: {"": "Object;",
   toString$0: function(_) {
     return "IntegerDivisionByZeroException";
@@ -4468,9 +4349,6 @@ StringBuffer$: function($content) {
 Interceptor_CssStyleDeclarationBase: {"": "Interceptor+CssStyleDeclarationBase;"},
 
 CssStyleDeclarationBase: {"": "Object;",
-  get$height: function(receiver) {
-    return this.getPropertyValue$1(receiver, "height");
-  },
   set$height: function(receiver, value) {
     this.setProperty$3(receiver, "height", value, "");
   },
@@ -4479,9 +4357,6 @@ CssStyleDeclarationBase: {"": "Object;",
   },
   set$top: function(receiver, value) {
     this.setProperty$3(receiver, "top", value, "");
-  },
-  get$width: function(receiver) {
-    return this.getPropertyValue$1(receiver, "width");
   },
   set$width: function(receiver, value) {
     this.setProperty$3(receiver, "width", value, "");
@@ -4501,10 +4376,6 @@ AnchorElement: {"": "HtmlElement;",
 CharacterData: {"": "Node;length="},
 
 CssStyleDeclaration: {"": "Interceptor_CssStyleDeclarationBase;length=",
-  getPropertyValue$1: function(receiver, propertyName) {
-    var propValue = receiver.getPropertyValue(propertyName);
-    return propValue != null ? propValue : "";
-  },
   setProperty$3: function(receiver, propertyName, value, priority) {
     var exception;
     try {
@@ -4527,13 +4398,6 @@ DomException: {"": "Interceptor;",
 },
 
 Element: {"": "Node;style=",
-  getComputedStyle$1: function(receiver, pseudoElement) {
-    pseudoElement = "";
-    return window.getComputedStyle(receiver, pseudoElement);
-  },
-  getComputedStyle$0: function($receiver) {
-    return this.getComputedStyle$1($receiver, null);
-  },
   toString$0: function(receiver) {
     return receiver.localName;
   },
@@ -4583,7 +4447,7 @@ Direction: {"": "Object;value", static: {
 "": "Direction_NORTH,Direction_NORTH_EAST,Direction_EAST,Direction_SOUTH_EAST,Direction_SOUTH,Direction_SOUTH_WEST,Direction_WEST,Direction_NORTH_WEST",
 }
 }}],
-["metadata", "../DART/dart-sdk/lib/html/html_common/metadata.dart", , {
+["metadata", "../../../../../../Program Files/DART/dart-sdk/lib/html/html_common/metadata.dart", , {
 SupportedBrowser: {"": "Object;browserName,minimumVersion", static: {
 "": "SupportedBrowser_CHROME,SupportedBrowser_FIREFOX,SupportedBrowser_IE,SupportedBrowser_OPERA,SupportedBrowser_SAFARI",
 }
@@ -4600,55 +4464,38 @@ Unstable: {"": "Object;"}}],
 Moon: {"": "Object;increment,random,left,top,size,direction,theMoon",
   ConstructingTheMoon$0: function() {
     var t1, t2;
-    t1 = $.get$width$x($.getComputedStyle$0$x(document.documentElement));
-    t1.replaceAll$2;
-    t1 = $.Primitives_parseDouble($.stringReplaceAllUnchecked(t1, "px", ""), null);
+    t1 = window.innerWidth;
     t2 = this.size;
-    if (typeof t2 !== "number")
-      throw t2.$div();
-    this.size = $.$mul$n(t1, t2 / 100);
-    $.set$width$x(this.theMoon.style, C.JSString_methods.$add($.toStringAsFixed$1$n(this.size, 2), "px"));
-    $.set$height$x(this.theMoon.style, C.JSString_methods.$add($.toStringAsFixed$1$n(this.size, 2), "px"));
+    if (t1 == null)
+      throw t1.$mul();
+    this.size = t1 * (t2 / 100);
+    $.set$width$x(this.theMoon.style, C.JSString_methods.$add(C.JSNumber_methods.toStringAsFixed$1(this.size, 2), "px"));
+    $.set$height$x(this.theMoon.style, C.JSString_methods.$add(C.JSNumber_methods.toStringAsFixed$1(this.size, 2), "px"));
     $.set$top$x(this.theMoon.style, C.JSString_methods.$add($.toString$0(this.top), "%"));
     $.set$left$x(this.theMoon.style, C.JSString_methods.$add($.toString$0(this.left), "%"));
     this.MovingTheMoon$0();
   },
   MovingTheMoon$0: function() {
     var t1, t2, t3;
-    t1 = this.left;
-    t2 = $.get$width$x($.getComputedStyle$0$x(document.documentElement));
-    t2.replaceAll$2;
-    t1 = $.$mul$n(t1, $.Primitives_parseDouble($.stringReplaceAllUnchecked(t2, "px", ""), null));
+    t1 = $.$mul$n(this.left, window.innerWidth);
     t2 = this.size;
     if ($.$lt$n($.$add$ns(t1, t2), 0))
       this.left = 100;
     else if ($.$gt$n(this.left, 100)) {
-      if (typeof t2 !== "number")
-        throw $.iae(t2);
-      t1 = $.get$width$x($.getComputedStyle$0$x(document.documentElement));
-      t1.replaceAll$2;
-      t1 = $.Primitives_parseDouble($.stringReplaceAllUnchecked(t1, "px", ""), null);
-      if (typeof t1 !== "number")
+      t1 = window.innerWidth;
+      if (t1 == null)
         throw $.iae(t1);
-      this.left = (0 - t2) / t1;
+      this.left = -1 * (t2 / t1);
     } else {
       t1 = this.top;
       t3 = $.getInterceptor$n(t1);
       if (t3.$gt(t1, 100)) {
-        if (typeof t2 !== "number")
-          throw $.iae(t2);
-        t1 = $.get$height$x($.getComputedStyle$0$x(document.documentElement));
-        t1.replaceAll$2;
-        t1 = $.Primitives_parseDouble($.stringReplaceAllUnchecked(t1, "px", ""), null);
-        if (typeof t1 !== "number")
+        t1 = window.innerWidth;
+        if (t1 == null)
           throw $.iae(t1);
-        this.top = (0 - t2) / t1;
-      } else {
-        t2 = $.get$height$x($.getComputedStyle$0$x(document.documentElement));
-        t2.replaceAll$2;
-        if ($.$lt$n($.$add$ns(t3.$mul(t1, $.Primitives_parseDouble($.stringReplaceAllUnchecked(t2, "px", ""), null)), this.size), 0))
-          this.top = 100;
-      }
+        this.top = -1 * (t2 / t1);
+      } else if ($.$lt$n($.$add$ns(t3.$mul(t1, window.innerWidth), this.size), 0))
+        this.top = 100;
     }
     switch (this.direction) {
       case C.Direction_0:
@@ -4797,7 +4644,6 @@ Isolate.$finishClasses($$, $, null);
 $$ = null;
 
 $.IsolateNatives__processWorkerMessage$closure = new $.Closure$_processWorkerMessage($.IsolateNatives__processWorkerMessage, "IsolateNatives__processWorkerMessage$closure");
-$.Primitives__throwFormatException$closure = new $.Closure$_throwFormatException($.Primitives__throwFormatException, "Primitives__throwFormatException$closure");
 $.toStringWrapper$closure = new $.Closure$toStringWrapper($.toStringWrapper, "toStringWrapper$closure");
 $.invokeClosure$closure = new $.Closure$invokeClosure($.invokeClosure, "invokeClosure$closure");
 $.typeNameInChrome$closure = new $.Closure$typeNameInChrome($.typeNameInChrome, "typeNameInChrome$closure");
@@ -4995,20 +4841,11 @@ $.forEach$1$a = function(receiver, a0) {
 $.get$hashCode$ = function(receiver) {
   return $.getInterceptor(receiver).get$hashCode(receiver);
 };
-$.get$height$x = function(receiver) {
-  return $.getInterceptor$x(receiver).get$height(receiver);
-};
 $.get$iterator$a = function(receiver) {
   return $.getInterceptor$a(receiver).get$iterator(receiver);
 };
 $.get$length$asx = function(receiver) {
   return $.getInterceptor$asx(receiver).get$length(receiver);
-};
-$.get$width$x = function(receiver) {
-  return $.getInterceptor$x(receiver).get$width(receiver);
-};
-$.getComputedStyle$0$x = function(receiver) {
-  return $.getInterceptor$x(receiver).getComputedStyle$0(receiver);
 };
 $.set$height$x = function(receiver, value) {
   return $.getInterceptor$x(receiver).set$height(receiver, value);
@@ -5024,9 +4861,6 @@ $.set$width$x = function(receiver, value) {
 };
 $.toString$0 = function(receiver) {
   return $.getInterceptor(receiver).toString$0(receiver);
-};
-$.toStringAsFixed$1$n = function(receiver, a0) {
-  return $.getInterceptor$n(receiver).toStringAsFixed$1(receiver, a0);
 };
 $.mapTypeToInterceptor = [];
 Isolate.$lazy($, "globalThis", "globalThis", "get$globalThis", function() {
@@ -5096,7 +4930,7 @@ Isolate.$lazy($, "_toStringList", "Maps__toStringList", "get$Maps__toStringList"
   return $.List_List(null);
 });
 // Native classes
-$.defineNativeMethods("AutocompleteErrorEvent|DOMError|ErrorEvent|Event|FileError|MediaError|MediaKeyError|Navigator|NavigatorUserMediaError|PositionError|SQLError|SVGAnimatedLength|SVGAnimatedNumberList|SpeechRecognitionError", $.Interceptor);
+$.defineNativeMethods("AutocompleteErrorEvent|DOMError|ErrorEvent|Event|FileError|MediaError|MediaKeyError|Navigator|NavigatorUserMediaError|PositionError|SQLError|SVGAnimatedNumberList|SpeechRecognitionError", $.Interceptor);
 
 $.defineNativeMethods("HTMLAreaElement|HTMLAudioElement|HTMLBRElement|HTMLBaseElement|HTMLBodyElement|HTMLButtonElement|HTMLCanvasElement|HTMLContentElement|HTMLDListElement|HTMLDataListElement|HTMLDetailsElement|HTMLDialogElement|HTMLDivElement|HTMLEmbedElement|HTMLFieldSetElement|HTMLHRElement|HTMLHeadElement|HTMLHeadingElement|HTMLHtmlElement|HTMLIFrameElement|HTMLImageElement|HTMLInputElement|HTMLKeygenElement|HTMLLIElement|HTMLLabelElement|HTMLLegendElement|HTMLLinkElement|HTMLMapElement|HTMLMediaElement|HTMLMenuElement|HTMLMetaElement|HTMLMeterElement|HTMLModElement|HTMLOListElement|HTMLObjectElement|HTMLOptGroupElement|HTMLOptionElement|HTMLOutputElement|HTMLParagraphElement|HTMLParamElement|HTMLPreElement|HTMLProgressElement|HTMLQuoteElement|HTMLScriptElement|HTMLShadowElement|HTMLSourceElement|HTMLSpanElement|HTMLStyleElement|HTMLTableCaptionElement|HTMLTableCellElement|HTMLTableColElement|HTMLTableDataCellElement|HTMLTableElement|HTMLTableHeaderCellElement|HTMLTableRowElement|HTMLTableSectionElement|HTMLTemplateElement|HTMLTextAreaElement|HTMLTitleElement|HTMLTrackElement|HTMLUListElement|HTMLUnknownElement|HTMLVideoElement", $.HtmlElement);
 

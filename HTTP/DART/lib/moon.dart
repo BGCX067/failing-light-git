@@ -25,7 +25,7 @@ class Moon {
   }
 
   void ConstructingTheMoon () {
-    size = double.parse(document.documentElement.getComputedStyle().width.replaceAll('px', '')) * (size/100);
+    size = (window.innerWidth) * (size/100);
     theMoon.style.width = size.toStringAsFixed(2) + "px";
     theMoon.style.height = size.toStringAsFixed(2) + "px";
     theMoon.style.top = top.toString() + "%";
@@ -41,13 +41,13 @@ class Moon {
   }
 
   void MovingTheMoon () {
-    if ((left * double.parse(document.documentElement.getComputedStyle().width.replaceAll('px', ''))) + size < 0) {
+    if ((left * (window.innerWidth)) + size < 0) {
       left = 100.0;
     } else if (left > 100) {
-      left = (0 - size)/double.parse(document.documentElement.getComputedStyle().width.replaceAll('px', ''));
+      left = (-1)*(size/(window.innerWidth));
     } else if (top > 100) {
-      top = (0 - size)/double.parse(document.documentElement.getComputedStyle().height.replaceAll('px', ''));
-    } else if ((top * double.parse(document.documentElement.getComputedStyle().height.replaceAll('px', ''))) + size < 0) {
+      top = (-1)*(size/(window.innerWidth));
+    } else if ((top * (window.innerWidth)) + size < 0) {
       top = 100.0;
     }
 

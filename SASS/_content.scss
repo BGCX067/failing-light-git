@@ -7,32 +7,33 @@
 }
 
 #header, #footer {
-  background-color: $darkGray;
-  @include opacity(0.9);
-  &.first:hover {
-    border-top-left-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -webkit-border-radius-topleft: 5px;
-    -khtml-border-radius-topleft: 5px;
-    border-bottom-left-radius: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    -webkit-border-radius-bottomleft: 5px;
-    -khtml-border-radius-bottomleft: 5px;
-  }
-  &.last:hover {
-    border-top-right-radius: 5px;
-    -moz-border-radius-topright: 5px;
-    -webkit-border-radius-topright: 5px;
-    -khtml-border-radius-topright: 5px;
-    border-bottom-right-radius: 5px;
-    -moz-border-radius-bottomright: 5px;
-    -webkit-border-radius-bottomright: 5px;
-    -khtml-border-radius-bottomright: 5px;
-  }
+  background-color: rgba($nightSkyBlue, 0.9);
   &.last {
     border-right: none;
     box-shadow: none;
   }
+}
+
+.first:hover {
+  border-top-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-radius-topleft: 5px;
+  -khtml-border-radius-topleft: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-radius-bottomleft: 5px;
+  -khtml-border-radius-bottomleft: 5px;
+}
+
+.last:hover {
+  border-top-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-radius-topright: 5px;
+  -khtml-border-radius-topright: 5px;
+  border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-radius-bottomright: 5px;
+  -khtml-border-radius-bottomright: 5px;
 }
 
 .menu {
@@ -58,19 +59,30 @@
 }
 
 .menu:hover {
-  @include opacity(0.95);
-  background-color: $gray;
-  color: $offWhite;
+  background-color: rgba($gray, 0.5);
+  color: $white;
   #copyright & {
-    background-color: $darkGray;
-    color: $white;
+    background-color: inherit;
   }
 }
 
 #donate {
-  color: $sunset;
+  color: $green;
 }
 
 #copyright {
   border-right: 1px solid black;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#content div div {
+  background-color: rgba($white, 0.9);
+  color: $black;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  margin: 5px 0;
+  padding: 10px;
 }
