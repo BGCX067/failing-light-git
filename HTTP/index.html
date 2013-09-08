@@ -4,14 +4,13 @@
     <title>Failing Light</title>
 
     <!-- Style Sheets -->
-    <link rel="stylesheet" href="CSS/foundation.css">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/site.css">
     <!-- END Style Sheets -->
 
     <!-- JavaScripts -->
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="JS/vendor/custom.modernizr.js"></script>
-    <script type="text/javascript" src="JS/background.js"></script>
+    <script src="http://code.jquery.com/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="JS/foundation/vendor/custom.modernizr.js"></script>
+    <script type="text/javascript" src="JS/site.js" defer></script>
     <!-- END JavaScripts -->
 
 </head>
@@ -24,7 +23,12 @@
         <a class="large-3 columns menu" href="">About</a>
         <a class="large-3 columns menu last" href="">Login</a>
     </div>
-    <div id="content" class="row">
+    <div id="content">
+        <div class="row">
+            <div class="large-4 columns">Here's some test content</div>
+            <span class="large-1 columns"></span>
+            <div class="large-7 columns">Here's larger test content!</div>
+        </div>
     </div>
     <div id="footer" class="row">
         <a class="large-3 columns menu first" href="">Contact</a>
@@ -32,12 +36,7 @@
         <a id="donate" class="large-3 columns menu last" href="">Donate</a>
     </div>
 
-    <script type="text/javascript">
-        GenerateBackground();
-    </script>
-
-    <script src="JS/foundation.min.js"></script>
-    <script>
+    <script src="JS/foundation/foundation.min.js">
         $(document).foundation();
     </script>
 </body>
