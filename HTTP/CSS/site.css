@@ -6913,6 +6913,75 @@ body {
   position: fixed;
 }
 
+/* line 1, ../../SASS/_logo.scss */
+#logo, #logo-moon, #logo-moon-cover, #logo-text {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 7, ../../SASS/_logo.scss */
+#logo {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 35%;
+  top: 8px;
+}
+
+/* line 15, ../../SASS/_logo.scss */
+#logo-moon {
+  left: 0;
+  top: 0;
+  background-color: #dadcf5;
+  z-index: 1;
+  min-width: 100%;
+  min-height: 100%;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -khtml-border-radius: 100%;
+  box-shadow: 1px 0 1px #6c20a0, 0 1px 1px #6c20a0, -1px 0 1px #6c20a0, 0 -1px 1px #6c20a0;
+}
+
+/* line 31, ../../SASS/_logo.scss */
+#logo-moon-cover {
+  left: 0;
+  top: 2.5%;
+  background-color: black;
+  z-index: 2;
+  min-width: 80%;
+  min-height: 95%;
+  box-shadow: -1px 0 1px #6c20a0;
+  border-top-left-radius: 100%;
+  border-bottom-left-radius: 100%;
+  -moz-border-radius-topleft: 100%;
+  -moz-border-radius-bottomleft: 100%;
+  -webkit-border-top-left-radius: 100%;
+  -webkit-border-bottom-left-radius: 100%;
+  -khtml-border-top-left-radius: 100%;
+  -khtml-border-bottom-left-radius: 100%;
+  border-top-right-radius: 100% 100%;
+  border-bottom-right-radius: 100% 100%;
+  -moz-border-radius-topright: 100% 100%;
+  -moz-border-radius-bottomright: 100% 100%;
+  -webkit-border-top-right-radius: 100% 100%;
+  -webkit-border-bottom-right-radius: 100% 100%;
+  -khtml-border-top-right-radius: 100% 100%;
+  -khtml-border-bottom-right-radius: 100% 100%;
+}
+
+/* line 62, ../../SASS/_logo.scss */
+#logo-text {
+  z-index: 3;
+  font-weight: normal;
+  font-size: 100%;
+  top: 35%;
+  left: 3%;
+  filter: Shadow(Color=#6c20a0, Direction=0, Strength=5);
+  text-shadow: 1px 0 1px #6c20a0, 0 1px 1px #6c20a0, -1px 0 1px #6c20a0, 0 -1px 1px #6c20a0, 2px 0 2px #6c20a0, 0 2px 2px #6c20a0, -2px 0 2px #6c20a0, 0 -2px 2px #6c20a0;
+}
+
 /* line 1, ../../SASS/_content.scss */
 #header, #content, #footer {
   margin-top: 10px;
@@ -6920,32 +6989,17 @@ body {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -khtml-border-radius: 5px;
+  z-index: 1;
 }
 
-/* line 9, ../../SASS/_content.scss */
-#header, #footer {
-  background-color: rgba(59, 79, 135, 0.9);
+/* line 10, ../../SASS/_content.scss */
+.nav {
+  list-style: none;
 }
-/* line 11, ../../SASS/_content.scss */
-#header.last, #footer.last {
+/* line 12, ../../SASS/_content.scss */
+.nav .last, .nav .last a {
   border-right: none;
   box-shadow: none;
-}
-
-/* line 17, ../../SASS/_content.scss */
-.first:hover {
-  border-top-left-radius: 5px;
-  -moz-border-radius-topleft: 5px;
-  -webkit-border-radius-topleft: 5px;
-  -khtml-border-radius-topleft: 5px;
-  border-bottom-left-radius: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  -webkit-border-radius-bottomleft: 5px;
-  -khtml-border-radius-bottomleft: 5px;
-}
-
-/* line 28, ../../SASS/_content.scss */
-.last:hover {
   border-top-right-radius: 5px;
   -moz-border-radius-topright: 5px;
   -webkit-border-radius-topright: 5px;
@@ -6955,55 +7009,95 @@ body {
   -webkit-border-radius-bottomright: 5px;
   -khtml-border-radius-bottomright: 5px;
 }
-
-/* line 39, ../../SASS/_content.scss */
-.menu {
+/* line 24, ../../SASS/_content.scss */
+.nav .first, .nav .first a {
+  border-top-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-radius-topleft: 5px;
+  -khtml-border-radius-topleft: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-radius-bottomleft: 5px;
+  -khtml-border-radius-bottomleft: 5px;
+}
+/* line 34, ../../SASS/_content.scss */
+.nav li {
+  z-index: 2;
   text-align: center;
   color: #fdfdfd;
   display: table-cell;
   vertical-align: middle;
-  padding-top: 15px;
-  padding-bottom: 15px;
   border-right: 1px solid black;
   font-weight: bold;
+  padding: 0;
+  background-color: rgba(59, 79, 135, 0.95);
 }
-/* line 48, ../../SASS/_content.scss */
-#copyright .menu {
-  padding-top: 17px;
-  padding-bottom: 17px;
-  border-right: none;
+/* line 44, ../../SASS/_content.scss */
+.nav li a, .nav li span {
+  color: #fdfdfd;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+/* line 49, ../../SASS/_content.scss */
+.nav li ul a {
+  border-top: 1px solid black;
+}
+/* line 53, ../../SASS/_content.scss */
+.nav a {
+  display: block;
+}
+/* line 56, ../../SASS/_content.scss */
+.nav a:hover {
+  color: #fdfdfd;
+  text-shadow: 1px 0 1px #6c20a0, 0 1px 1px #6c20a0, -1px 0 1px #6c20a0, 0 -1px 1px #6c20a0, 2px 0 2px #6c20a0, 0 2px 2px #6c20a0, -2px 0 2px #6c20a0, 0 -2px 2px #6c20a0;
+  background-color: rgba(119, 107, 121, 0.6);
+}
+/* line 61, ../../SASS/_content.scss */
+.nav ul {
+  width: 100%;
+  margin-left: 0;
+  list-style: none;
+  position: absolute;
+  left: -9999px;
+  background-color: rgba(59, 79, 135, 0.95);
+}
+/* line 68, ../../SASS/_content.scss */
+.nav ul li {
+  float: none;
+}
+/* line 71, ../../SASS/_content.scss */
+.nav ul a {
+  white-space: nowrap;
+}
+/* line 76, ../../SASS/_content.scss */
+.nav li:hover ul {
+  left: 0;
+}
+/* line 78, ../../SASS/_content.scss */
+.nav li:hover ul a {
+  width: 100%;
+}
+
+/* line 87, ../../SASS/_content.scss */
+#donate {
+  color: #1c9f10;
+}
+
+/* line 91, ../../SASS/_content.scss */
+#copyright {
+  padding: 18px 0;
   margin-left: auto;
   margin-right: auto;
   font-style: italic;
   display: block;
   font-weight: normal;
   font-size: 12px;
+  filter: Shadow(Color=#6c20a0, Direction=0, Strength=5);
+  text-shadow: 1px 0 1px #6c20a0, 0 1px 1px #6c20a0, -1px 0 1px #6c20a0, 0 -1px 1px #6c20a0, 2px 0 2px #6c20a0, 0 2px 2px #6c20a0, -2px 0 2px #6c20a0, 0 -2px 2px #6c20a0;
 }
 
-/* line 61, ../../SASS/_content.scss */
-.menu:hover {
-  background-color: rgba(139, 141, 160, 0.5);
-  color: #fdfdfd;
-}
-/* line 64, ../../SASS/_content.scss */
-#copyright .menu:hover {
-  background-color: inherit;
-}
-
-/* line 69, ../../SASS/_content.scss */
-#donate {
-  color: #1c9f10;
-}
-
-/* line 73, ../../SASS/_content.scss */
-#copyright {
-  border-right: 1px solid black;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* line 79, ../../SASS/_content.scss */
-#content div div {
+/* line 105, ../../SASS/_content.scss */
+#content .row div {
   background-color: rgba(253, 253, 253, 0.9);
   color: black;
   border-radius: 5px;

@@ -17,12 +17,30 @@
 <body>
     <div id="stars"></div>
     <div id="moon"></div>
-    <div id="header" class="row">
-        <a class="large-3 columns menu first" href="">Home</a>
-        <a class="large-3 columns menu" href="">Games</a>
-        <a class="large-3 columns menu" href="">About</a>
-        <a class="large-3 columns menu last" href="">Login</a>
-    </div>
+    <ul id="header" class="row nav">
+        <li class="large-3 columns first">
+            <a href="">
+                <div id="logo">
+                    <span id="logo-moon"></span>
+                    <span id="logo-moon-cover"></span>
+                    <span id="logo-text">FailingLight</span>
+                </div>
+                &nbsp;
+            </a>
+        </li>
+        <li class="large-3 columns">
+            <a href="">Games</a>
+            <ul>
+                <a href="">Game Number 1</a>
+            </ul>
+        </li>
+        <li class="large-3 columns">
+            <a href="">About</a>
+        </li>
+        <li class="large-3 columns last">
+            <a href="">Login</a>
+        </li>
+    </ul>
     <div id="content">
         <div class="row">
             <div class="large-4 columns">Here's some test content</div>
@@ -30,11 +48,17 @@
             <div class="large-7 columns">Here's larger test content!</div>
         </div>
     </div>
-    <div id="footer" class="row">
-        <a class="large-3 columns menu first" href="">Contact</a>
-        <div class="large-6 columns" id="copyright"><div class="menu">&copy; 2103 FailingLight</div></div>
-        <a id="donate" class="large-3 columns menu last" href="">Donate</a>
-    </div>
+    <ul id="footer" class="row nav">
+        <li class="large-3 columns first">
+            <a href="">Contact</a>
+        </li>
+        <li class="large-6 columns">
+            <span id="copyright">&copy; 2013 FailingLight</span>
+        </li>
+        <li class="large-3 columns last">
+            <a id="donate" href="">Donate</a>
+        </li>
+    </ul>
 
     <script src="JS/foundation/foundation.min.js">
         $(document).foundation();

@@ -1,0 +1,70 @@
+#logo, #logo-moon, #logo-moon-cover, #logo-text {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}
+
+#logo {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 35%;
+  top: 8px;
+}
+
+#logo-moon {
+  left: 0;
+  top: 0;
+  background-color: $moonLight;
+  z-index: 1;
+  min-width: 100%;
+  min-height: 100%;
+
+  $val: 100%;
+  border-radius: $val;
+  -moz-border-radius: $val;
+  -webkit-border-radius: $val;
+  -khtml-border-radius: $val;
+  box-shadow: 1px 0 1px $purple, 0 1px 1px $purple, -1px 0 1px $purple, 0 -1px 1px $purple;
+}
+
+#logo-moon-cover {
+  left: 0;
+  top: 2.5%;
+  background-color: $black;
+  z-index: 2;
+  min-width: 80%;
+  min-height: 95%;
+  box-shadow: -1px 0 1px $purple;
+
+  $val: 100%;
+  border-top-left-radius: $val;
+  border-bottom-left-radius: $val;
+  -moz-border-radius-topleft: $val;
+  -moz-border-radius-bottomleft: $val;
+  -webkit-border-top-left-radius: $val;
+  -webkit-border-bottom-left-radius: $val;
+  -khtml-border-top-left-radius: $val;
+  -khtml-border-bottom-left-radius: $val;
+
+  //$val2: 25px 15px; 1/4 moon
+  $val2: 100% 100%;
+  border-top-right-radius: $val2;
+  border-bottom-right-radius: $val2;
+  -moz-border-radius-topright: $val2;
+  -moz-border-radius-bottomright: $val2;
+  -webkit-border-top-right-radius: $val2;
+  -webkit-border-bottom-right-radius: $val2;
+  -khtml-border-top-right-radius: $val2;
+  -khtml-border-bottom-right-radius: $val2;
+}
+
+#logo-text {
+  z-index: 3;
+  font-weight: normal;
+  font-size: 100%;
+  top: 35%;
+  left: 3%;
+  filter: Shadow(Color=$purple, Direction=0, Strength=5);
+  text-shadow: 1px 0 1px $purple, 0 1px 1px $purple, -1px 0 1px $purple, 0 -1px 1px $purple, 2px 0 2px $purple, 0 2px 2px $purple, -2px 0 2px $purple, 0 -2px 2px $purple;
+}

@@ -4,65 +4,83 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -khtml-border-radius: 5px;
+  z-index: 1;
 }
 
-#header, #footer {
-  background-color: rgba($nightSkyBlue, 0.9);
-  &.last {
+.nav {
+  list-style: none;
+  & .last, & .last a {
     border-right: none;
     box-shadow: none;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-radius-topright: 5px;
+    -khtml-border-radius-topright: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-radius-bottomright: 5px;
+    -khtml-border-radius-bottomright: 5px;
   }
-}
-
-.first:hover {
-  border-top-left-radius: 5px;
-  -moz-border-radius-topleft: 5px;
-  -webkit-border-radius-topleft: 5px;
-  -khtml-border-radius-topleft: 5px;
-  border-bottom-left-radius: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  -webkit-border-radius-bottomleft: 5px;
-  -khtml-border-radius-bottomleft: 5px;
-}
-
-.last:hover {
-  border-top-right-radius: 5px;
-  -moz-border-radius-topright: 5px;
-  -webkit-border-radius-topright: 5px;
-  -khtml-border-radius-topright: 5px;
-  border-bottom-right-radius: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-radius-bottomright: 5px;
-  -khtml-border-radius-bottomright: 5px;
-}
-
-.menu {
-  text-align: center;
-  color: $white;
-  display: table-cell;
-  vertical-align: middle;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  border-right: 1px solid black;
-  font-weight: bold;
-  #copyright & {
-    padding-top: 17px;
-    padding-bottom: 17px;
-    border-right: none;
-    margin-left: auto;
-    margin-right: auto;
-    font-style: italic;
+  & .first, & .first a {
+    border-top-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-radius-topleft: 5px;
+    -khtml-border-radius-topleft: 5px;
+    border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-radius-bottomleft: 5px;
+    -khtml-border-radius-bottomleft: 5px;
+  }
+  & li {
+    z-index: 2;
+    text-align: center;
+    color: $white;
+    display: table-cell;
+    vertical-align: middle;
+    border-right: 1px solid black;
+    font-weight: bold;
+    padding: 0;
+    background-color: rgba($nightSkyBlue, 0.95);
+    & a, span{
+      color: $white;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    & ul a {
+      border-top: 1px solid black;
+    }
+  }
+  & a {
     display: block;
-    font-weight: normal;
-    font-size: 12px;
   }
-}
-
-.menu:hover {
-  background-color: rgba($gray, 0.5);
-  color: $white;
-  #copyright & {
-    background-color: inherit;
+  & a:hover {
+    color: $white;
+    text-shadow: 1px 0 1px $purple, 0 1px 1px $purple, -1px 0 1px $purple, 0 -1px 1px $purple, 2px 0 2px $purple, 0 2px 2px $purple, -2px 0 2px $purple, 0 -2px 2px $purple;
+    background-color: rgba($darkGray, 0.6);
+  }
+  & ul {
+    width: 100%;
+    margin-left: 0;
+    list-style: none;
+    position: absolute;
+    left: -9999px;
+    background-color: rgba($nightSkyBlue, 0.95);
+    & li {
+      float: none;
+    }
+    & a {
+      white-space: nowrap;
+    }
+  }
+  & li:hover {
+    & ul {
+      left: 0;
+      & a {
+        width: 100%;
+      }
+    }
+    & a {
+    }
   }
 }
 
@@ -71,18 +89,28 @@
 }
 
 #copyright {
-  border-right: 1px solid black;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 18px 0;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+  display: block;
+  font-weight: normal;
+  font-size: 12px;
+  filter: Shadow(Color=$purple, Direction=0, Strength=5);
+  text-shadow: 1px 0 1px $purple, 0 1px 1px $purple, -1px 0 1px $purple, 0 -1px 1px $purple, 2px 0 2px $purple, 0 2px 2px $purple, -2px 0 2px $purple, 0 -2px 2px $purple;
 }
 
-#content div div {
-  background-color: rgba($white, 0.9);
-  color: $black;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -khtml-border-radius: 5px;
-  margin: 5px 0;
-  padding: 10px;
+#content {
+  & .row {
+    & div {
+      background-color: rgba($white, 0.9);
+      color: $black;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -khtml-border-radius: 5px;
+      margin: 5px 0;
+      padding: 10px;
+    }
+  }
 }
